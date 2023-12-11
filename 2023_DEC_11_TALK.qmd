@@ -217,14 +217,16 @@ ori_dat %>%
 
 ---
 
-## We need to use an **inferential framework** to **calibrate** the reading of residual plots! {.center}
+## We need to use an **inferential framework** to **calibrate** the reading of residual plots! {.center visibility="hidden"}
 
 
 ---
 
 ## 🔬Visual Inference
 
-This framework is called **visual inference** (Buja, et al. 2009).
+::: {style="font-size:70%"}
+
+The reading of residual plots can be **calibrated** by an **inferential framework** called **visual inference** (Buja, et al. 2009).
 
 :::: {.columns}
 
@@ -245,22 +247,36 @@ mod$gen_lineup(300, k = 20, pos = 11) %>%
 
 ::: {.column width="50%"}
 
-A **lineup** consists of 
+::: {.fragment}
 
-- $m$ randomly placed plots
-- one plot is the real residual plot (**data plot**) 
-- remaining $m − 1$ plots (**null plots**) containing residuals **simulated from the fitted model**.
+Typically, a **lineup** of residual plots consists of 
 
+<!-- - $m$ randomly placed plots -->
+- one **data plot**
+- $19$ **null plots** containing residuals **simulated from the fitted model**.
+
+:::
+
+::: {.fragment}
+
+To perform a visual test
+
+- Observer(s) will be asked to select the **most different plot(s)**.
+- The p-value can be calculated using the **beta-binomial model** (VanderPlas et al., 2021).
+
+:::
 
 :::
 
 
 ::::
 
+:::
+
 ---
 
 
-## 🔬Visual Inference
+## 🔬Visual Inference {visibility="hidden"}
 
 
 This framework is called **visual inference** (Buja, et al. 2009).
@@ -395,9 +411,9 @@ where $B(.)$ is the beta function, $\alpha$ is the parameter of the Dirichlet di
 
 ---
 
-## 🧪Experimental Design
+## ⚔️Conventional vs. Visual
 
-To understand why regression experts **consistently recommend plotting residuals**, we conducted an experiment to compare **conventional hypothesis testing** with **visual testing** in **linear regression diagnostics**.
+To understand why regression experts **consistently recommend plotting residuals** for regression diagnostics, we conducted an experiment to compare **conventional hypothesis testing** with **visual testing**.
 
 
 ---
@@ -458,7 +474,7 @@ magick::image_read_pdf("figures/different-n-1.pdf", pages = 1)
 
 ---
 
-## 📏Effect size
+## 📏Effect size {visibility="hidden"}
 
 
 We have chosen to use an approach based on **Kullback-Leibler divergence** (Kullback and Leibler, 1951).
@@ -498,7 +514,7 @@ $$Pr(\text{reject}~H_0|H_1,E) = \Lambda\left(log\left(\frac{0.05}{0.95}\right) +
 
 where $\Lambda(.)$ is the standard logistic function given as $\Lambda(z) = exp(z)/(1+exp(z))$. 
 
-- The **effect size $E$** is the only predictor.
+- The **effect size $E$** is the only predictor calculated using the KL-divergence (Kullback and Leibler, 1951).
 
 - The intercept is fixed to $log(0.05/0.95)$ so that $\hat{Pr}(\text{reject}~H_0|H_1,E = 0) = 0.05$.
 
@@ -506,13 +522,28 @@ where $\Lambda(.)$ is the standard logistic function given as $\Lambda(z) = exp(
 
 ## 🛠️Experimental Setup
 
-Overall, we collected **7974 evaluations** on **1152 unique lineups** performed by **443 subjects** recruited from an crowd-sourcing platform called **Prolific** (Palan and Schitter, 2018).
+::: {.fragment}
+
+Prolific (Palan and Schitter, 2018):
+
+- 7974 evaluations
+- 1152 unique lineups
+- 443 subjects
+
+:::
+
+<!-- Overall, we collected **7974 evaluations** on **1152 unique lineups** performed by **443 subjects** recruited from an crowd-sourcing platform called **Prolific** (Palan and Schitter, 2018). -->
+
+::: {.fragment}
 
 Every subject was asked to:
 
 - Evaluate **a block of 20 lineups**.
 - Select **one or more** plots that are **most different** from others.
-- Briefly explain their selections.
+
+:::
+
+<!-- - Briefly explain their selections. -->
 
 <!-- Provide **reasons** for their selections and evaluate **perceived difference** from other plots. -->
 <!-- - Evaluate **how different** they think the selected plots are from others. -->
@@ -679,13 +710,13 @@ However, we expect the behavior of the conventional test and the visual test to 
 
 ## 🧐Main Conclusions
 
-- Conventional tests are **more sensitive to weak departures** than visual tests.
+1. Conventional tests are **more sensitive to weak departures**.
 
-- Conventional tests often reject when departures are **not visibly different** from null residual plots.
+2. Conventional tests often reject when departures are **not visibly different** from null residual plots.
 
-- Visual tests perform **equally well** regardless of the type of residual departures and **remove any subjective arguments** about whether a pattern is visible or not.
+3. In these cases, visual tests provide a **more practical solution**. 
 
-- Regression experts are right. Residual plots are **indispensable methods** for assessing model fit.
+4. Regression experts are right. Residual plots are **indispensable methods** for assessing model fit.
 
 ---
 
