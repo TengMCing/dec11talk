@@ -102,8 +102,10 @@ Residuals can be checked in multiple ways:
 
 ## 📜Liteature of Regression Diagnostics
 
-Graphical approaches (plots) are the recommended methods for diagnosing residuals.
+::: {style="font-size:80%"}
 
+Graphical approaches (plots) are the recommended methods for diagnosing residuals.
+:::
 ::: {style="font-size:55%"}
 
 ::: {.fragment}
@@ -119,7 +121,7 @@ Graphical approaches (plots) are the recommended methods for diagnosing residual
 - Cook and Weisberg (1982):
 :::
 
-> Formal tests and graphical procedures are **complementary** and both have a place in residual analysis, but **graphical methods are easier to use**.
+> **Graphical methods are easier to use**.
 :::
 
 
