@@ -516,7 +516,7 @@ where $\Lambda(.)$ is the standard logistic function given as $\Lambda(z) = exp(
 
 - The **effect size $E$** is the only predictor calculated using the KL-divergence (Kullback and Leibler, 1951).
 
-- The intercept is fixed to $log(0.05/0.95)$ so that $\hat{Pr}(\text{reject}~H_0|H_1,E = 0) = 0.05$.
+- The **intercept is fixed** to $log(0.05/0.95)$ so that $\hat{Pr}(\text{reject}~H_0|H_1,E = 0) = 0.05$.
 
 ---
 
@@ -621,14 +621,21 @@ magick::image_read_pdf("figures/p-value-comparison-1.pdf", pages = 1)
 ::: {.column width="50%"}
 
 ::: {.fragment}
-The data plot (No.1) is **undistinguishable** from other plots with an extremely small effect size (\\(log_e(E) = -0.48\\)).
+Data plot (No.1):
+
+- **undistinguishable** from null plots
+- extremely small effect size (\\(log_e(E) = -0.48\\))
+- non-linearity pattern (S-shape) is **totally undetectable**
 :::
+
 ::: {.fragment}
-The non-linearity pattern is **totally undetectable**. 
+RESET test rejects the pattern ($p\text{-value} = 0.004$).
 :::
+
 ::: {.fragment}
-However, the **RESET test rejects the pattern** with a very small $p\text{-value} = 0.004$. In contrast, the $p\text{-value}$ produced by the visual test is $0.813$.
+Visual test produces more practical $p\text{-value} = 0.813$.
 :::
+
 :::
 
 
